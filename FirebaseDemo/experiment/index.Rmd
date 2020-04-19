@@ -40,29 +40,11 @@ tags$script(src='https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js'
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   
-  // Get a reference to the database service
-  var database = firebase.database();
-  
   // login anonymous user
   firebase.auth().signInAnonymously().catch(function(error) {
-  // Handle Errors here.
-  //var errorCode = error.code;
-  //var errorMessage = error.message;
-  // ...
-});
-  
-  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    // ...
-  } else {
-    // User is signed out.
-    // ...
-  }
-  // ...
-});
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
   
 ```
 
@@ -73,7 +55,7 @@ tagList(
 tags$script(src='jspsych-6/jspsych.js'),
 tags$script(src='jspsych-6/plugins/jspsych-html-keyboard-response.js'),
 tags$script(src='jspsych-6/plugins/jspsych-html-keyboard-multiple-response.js'),
-tags$script(src='xprmntr/xprmntr.js')
+#tags$script(src='xprmntr/xprmntr.js')
 )
 ```
 
