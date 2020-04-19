@@ -85,11 +85,11 @@ library(xprmntr)
 library(dplyr)
 
 # create dataframe to define stimuli
-stroop_stim <- data.frame( stimulus = length(4),
-                           word = rep(c("red","green","blue","yellow")),
-                           color = rep(c("red","green","blue","yellow")),
-                           response = rep(c("r","g","b","y")),
-                           stim_type = length(4),
+stroop_stim <- data.frame( stimulus = length(2),
+                           word = rep(c("red","green")),
+                           color = rep(c("red","green")),
+                           response = rep(c("r","g")),
+                           stim_type = length(2),
                            id = "stroop_stim",
                            fontsize = "60pt") %>%
   mutate(stim_type = as.numeric(word==color)) %>%
