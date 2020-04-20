@@ -158,7 +158,8 @@ jsPsych.init({
     var dbpath = 'sessions/'+firebase.auth().currentUser.uid;
     firebase.database().ref(dbpath).set({
       data: jsPsych.data.get().values(),
-      study: 'stroop'
+      study: 'stroop',
+      date: Date.now()
     })
   }
 });
