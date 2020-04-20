@@ -115,7 +115,7 @@ var instructions = {
     "<p>Type the whole name of the color, not the word, then press space</p>"+
     "<p>E.g., type 'red' for this example example</p>"+
     "<p>Press any key to begin.</p>",
-  post_trial_gap: 1000
+  post_trial_gap: 200
 };
 
 
@@ -155,12 +155,13 @@ timeline.push(debrief);
 jsPsych.init({
   timeline: timeline,
   on_finish: function() {
-    var dbpath = 'sessions/'+firebase.auth().currentUser.uid;
+    var dbpath = firebase.auth().currentUser.uid;
     firebase.database().ref(dbpath).set({
       data: jsPsych.data.get().values(),
       study: 'stroop',
       date: Date.now()
-    })
+    });
+    firebase.auth().signOut();
   }
 });
 ```
