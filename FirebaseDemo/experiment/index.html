@@ -167,13 +167,13 @@ timeline.push(debrief);
 /*start experiment*/
 /* data is saved to firebase using the anonymous uid */
 jsPsych.init({
-    timeline: timeline,
-    on_finish: function() {
-    firebase.database().ref('sessions/'+firebase.auth().currentUser.uid).set({
+  timeline: timeline,
+  on_finish: function() {
+    var dbpath = firebase.auth().currentUser.uid+'/teststudy';
+    firebase.database().ref(dbpath).set({
       data: jsPsych.data.get().values()
     })
-    }
-
+  }
 });
 </script>
 
