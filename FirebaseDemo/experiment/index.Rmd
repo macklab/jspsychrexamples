@@ -159,9 +159,9 @@ jsPsych.init({
     firebase.database().ref(dbpath).set({
       data: jsPsych.data.get().values(),
       study: 'stroop',
-      date: Date.now()
+      date: Date()
     });
-    firebase.auth().signOut();
+    //firebase.auth().signOut();
   }
 });
 ```
